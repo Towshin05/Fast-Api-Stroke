@@ -1,0 +1,20 @@
+version: '3.8'  # or another version without 'version' if you are using Compose V2
+
+services:
+  server:
+    build:
+      context: ./server
+    image: fast-api-server:latest
+    ports:
+      - "8000:8000"
+
+  client:
+    build:
+      context: ./client  # Make sure this path is correct
+      dockerfile: Dockerfile  # Ensure the Dockerfile is named "Dockerfile" in the client directory
+    image: fast-api-client:latest
+    ports:
+      - "8501:8501"
+
+
+    
