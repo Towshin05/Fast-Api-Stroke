@@ -42,9 +42,9 @@ stroke-prediction-app/
 - Docker: Client and server containers
 - Orchestration: Docker Compose
 
-##  Docker Containers
-**client**: Runs Streamlit frontend on port 8501
-**server**: Runs FastAPI backend on port 8000
+###  Docker Containers
+- **client**: Runs Streamlit frontend on port 8501
+- **server**: Runs FastAPI backend on port 8000
 
 
 
@@ -79,15 +79,18 @@ git clone https://github.com/Towshin05/Fast-Api-Stroke.git
 cd Fast-API
 
 ```
-
+3. **Run the project**
+```bash
+docker-compose up --build
+```
 #### Api Endpoints
-3. **Health Check**
+4. **Health Check**
 ```bash
 GET /health
 ```
 Returns API status and version information.
 
-4. **Predict Stroke Risk**
+5. **Predict Stroke Risk**
 
 ```bash
 POST /predict
@@ -139,8 +142,9 @@ curl -X POST "http://localhost:8000/predict" \
        "bmi": 25.0,
        "smoking_status": "never smoked",
        "gender": "Female"
-     }'
-     ```
+     }' 
+     
+```
 ### Troubleshooting
 1. **Version Mismatch Warnings**
 ```bash
@@ -165,4 +169,10 @@ WARNING: If you are loading a serialized model (like pickle in Python, RDS in R)
 
 **Solution**
 Rebuild model using current XGBoost version or use **model.save_model()** instead of pickle.
+
+### License
+MIT
+
+### Contribution
+Towshin05
 
